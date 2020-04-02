@@ -3,9 +3,9 @@
 
 [어댑터 패턴 (Adapter Pattern)]()
 
-[템플릿 메소드 패턴]()
+[템플릿 메소드 패턴 (Template Method Pattern)]()
 
-[팩토리 메소드]()
+[팩토리 메소드 (Factory Method Pattern)]()
 
 [싱글톤 패턴]()
 
