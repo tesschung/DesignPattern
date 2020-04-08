@@ -188,3 +188,119 @@ public class Main {
 
 ---
 
+> 체이닝 방식으로 객체의 필드 값을 변경해준다.
+
+
+
+```java
+package com.BuilderPattern02;
+
+public class Computer {
+
+    private String cpu;
+    private String ram;
+    private String storage;
+
+    public Computer(String cpu, String ram, String storage) {
+        super();
+        this.cpu = cpu;
+        this.ram = ram;
+        this.storage = storage;
+    }
+
+    public void setStorage(String storage) {
+        this.storage = storage;
+    }
+
+    public String getStorage() {
+        return storage;
+    }
+
+    public void setCpu(String cpu) {
+        this.cpu = cpu;
+    }
+
+    public String getCpu() {
+        return cpu;
+    }
+
+    public void setRam(String ram) {
+        this.ram = ram;
+    }
+
+    public String getRam() {
+        return ram;
+    }
+
+    @Override
+    public String toString(){
+        return cpu+" "+ram+" "+storage;
+    }
+
+}
+```
+
+
+
+```java
+package com.BuilderPattern02;
+
+public class ComputerBuilder {
+
+    private Computer computer;
+
+    private ComputerBuilder() {
+        computer = new Computer("Default", "Default","Default");
+    }
+
+    public static ComputerBuilder start() {
+        return new ComputerBuilder();
+    }
+
+    public ComputerBuilder setCpu(String string) {
+        computer.setCpu(string);
+        return this;
+    }
+
+    public ComputerBuilder setRam(String string) {
+        computer.setRam(string);
+        return this;
+    }
+  
+  	public ComputerBuilder setStorage(String string) {
+        computer.setStorage(string);
+        return this;
+    }
+
+    public Computer build() {
+        return this.computer;
+    }
+    
+}
+```
+
+
+
+```java
+package com.BuilderPattern02;
+
+public class Main {
+
+    public static void main(String[] args) {
+        System.out.println();
+
+        // 아래처럼 했을때 변수 순서를 이상하게 넣으면 큰 오류가 나는걸 방지하기 위해서
+        // 체이닝 방식으로 생성
+//        Computer computer = new Computer("", "", "");
+
+        Computer computer = ComputerBuilder
+                .start()
+                .setCpu("i7")
+                .setRam("8g")
+                .build();
+
+        System.out.println(computer.toString()); // i7 8g Default
+    }
+}
+```
+
