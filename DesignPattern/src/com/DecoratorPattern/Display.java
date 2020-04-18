@@ -1,4 +1,6 @@
 package com.DecoratorPattern;
 
-public class Display {
+public abstract class Display {
+
+    public void draw() {}
 }
