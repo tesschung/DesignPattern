@@ -16,6 +16,10 @@
 
 
 
+위 그림에서 package1과 package2에 해당하는
+
+HelpSystem01, HelpSystem02
+
 ```java
 package com.FacadePattern;
 
@@ -31,8 +35,6 @@ class HelpSystem01 {
 }
 ```
 
-
-
 ```java
 package com.FacadePattern;
 
@@ -46,6 +48,11 @@ class HelpSystem02 {
     }
 }
 ```
+
+Facade.java
+
+Facade 클래스를 통해 HelpSystem01, HelpSystem02를 실행한다.
+
 
 ```java
 package com.FacadePattern;
@@ -67,6 +74,12 @@ public class Facade { // Facade
 
 }
 ```
+
+Application.java
+
+Client에 해당한다.
+
+바로 시스템들을 사용할 수 있게 하는 패턴이 된다.
 
 ```java
 package com.FacadePattern;
