@@ -15,22 +15,26 @@
 ```java
 public class Button {
     
+    // notify
     public void onClick(){
         // 이벤트 처리를 해줘야 한다.
-        // 클릭이벤트가 발생하면 자기자신을 업데이트 한다.
+        // onClickListener 왔을때 호출
         if (onClickListener != null) {
-            onClickListener.onClick(this);
+            onClickListener.onClick(this); 
+            // 클릭이벤트가 발생하면 자기자신을 업데이트 한다.
         }
     }
 
+    // Observer Interface
     public interface OnClickListener{
-        void onClick(Button button);
+        public void onClick(Button button);
     }
 
-    OnClickListener onClickListener;
+    private OnClickListener onClickListener;
 
+    // setObserver
     public void setOnClickListener(OnClickListener onClickListener) {
-        this.onClickListener = onClickListener;
+        this.onClickListener = onClickListener; // 객체를 넣어준다.
     }
 }
 ```
@@ -40,11 +44,12 @@ public class Main {
     public static void main(String[] args) {
         System.out.println();
 
-        Button button = new Button();
+        Button button = new Button(); // 버튼 객체를 만든다.
+        
         button.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(Button button) {
-                System.out.println(button+"is Clicked");
+                System.out.println(button+"is Clicked"); // 버튼객체가 클릭된다.
             }
         });
         button.onClick();
@@ -52,3 +57,12 @@ public class Main {
 }
 ```
 
+
+
+
+
+자바 제공
+
+`Observer` 인터페이스
+
+`Observable` 클래스
