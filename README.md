@@ -194,3 +194,95 @@
 
 요청에 사용되는 각종 명령어들을 추상클래스와 구체클래스로 분리하여 단순화한다.
 
+
+
+
+
+# 관계 Relation
+
+## 연관관계
+
+
+
+
+
+
+
+## 일반화관계
+
+
+
+
+
+
+
+
+
+## 집합관계
+
+> 합성관계 Composition
+
+```java
+public class Computer {
+    private MainBoard mb;
+    private CPU cpu;
+    private Memory memory;
+    private PowerSupply powerSupply;
+
+    public Computer() {
+        this.mb = new MainBoard();
+        this.cpu = new CPU();
+        this.memory = new Memory();
+        this.powerSupply = new PowerSupply();
+    }
+}
+```
+
+채워진 마름모꼴로 표현한다.
+
+Computer 객체가 사라지면 부품을 구성하는 객체들도 사라진다.
+
+생명주기를 함께한다.
+
+
+
+> 집약관계 Aggregation
+
+```java
+public class Computer {
+    private MainBoard mb;
+    private CPU cpu;
+    private Memory memory;
+    private PowerSupply powerSupply;
+
+    public Computer(MainBoard mb, CPU cpu, Memory memory, PowerSupply powerSupply) {
+        this.mb = mb;
+        this.cpu = cpu;
+        this.memory = memory;
+        this.powerSupply = powerSupply;
+    }
+}
+```
+
+빈 마름모꼴로 표현된다.
+
+전체 객체와 부분 객체의 생명 주기가 다르다.
+
+부분 객체의 여러 전체 객체가 공유할 수 있다.
+
+코드에서 확인 되듯, Computer 객체가 사라져도 부품 객체는 사라지지 않는다. 외부에서 이들 객체에 대한 참조만 받아 사용하기 때문이다.
+
+
+
+## 의존관계
+
+
+
+
+
+
+
+## 실체화관계
+
+
+
