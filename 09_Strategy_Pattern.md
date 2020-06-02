@@ -6,6 +6,8 @@
 
 여러 알고리즘을 하나의 *추상적인 접근점*을 만들어 접근점에서 서로 *교환 가능*하도록 하는 패턴
 
+매개변수랑 관련된 것 -> 이 매개변수는 그 최상위 인터페이스를 상속한 클래스 일 것
+
 즉, `interface`를 만들고 교환 가능하도록 하는 패턴
 
 
@@ -136,14 +138,14 @@ public interface Weapon {
 }
 ```
 
-그리고 Weapon interface를 implements하는 칼과 검을 작성한다. ㅇ이때 각 클래스에 맞게 추상메소드를 Override한다.
+그리고 Weapon interface를 implements하는 칼과 검을 작성한다. 이때 각 클래스에 맞게 추상메소드를 Override한다.
 
 *Knife.java*
 
 ```java
 package com.StrategyPattern;
 
-public class Knife implements Weapon{
+public class Knife implements Weapon{ // 이런식으로 weapon이라는 인터페이스를 상속받는 Knife 클래스 생성
     @Override
     public void attack() {
         System.out.println("knife attack");
@@ -156,7 +158,7 @@ public class Knife implements Weapon{
 ```java
 package com.StrategyPattern;
 
-public class Sword implements Weapon {
+public class Sword implements Weapon { // 이런식으로 weapon이라는 인터페이스를 상속받는 Sword 클래스 생성
     @Override
     public void attack() {
         System.out.println("Sword attack");
