@@ -10,9 +10,9 @@
 
 ![image-20200619211247976](images/image-20200619211247976.png)
 
-<<abstract>> Mediator - 객체를 담는 그릇(list, map ...)
+abstract Mediator - 객체를 담는 그릇(list, map ...)
 
-<<abstract>>  Colleague(객체) - 어떤 Mediator인지 필드로 가지고 있음
+abstract  Colleague(객체) - 어떤 Mediator인지 필드로 가지고 있음
 
 
 
@@ -136,3 +136,8 @@ public class ChatColleague extends Colleague{
 }
 ```
 
+
+
+> 전체 colleague에게 데이터가 전송되는 방식
+
+`sendData()` -> `mediate()` -> `handle()`
